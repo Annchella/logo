@@ -1,20 +1,12 @@
-// src/components/ServicesWeProvideSection.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import servicesData from '../data/services.json';
 
 const ServicesWeProvideSection = () => {
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState(servicesData);
 
   useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await axios.get('/api/services');
-        setServices(response.data);
-      } catch (error) {
-        console.error('Error fetching services:', error);
-      }
-    };
-    fetchServices();
+    // Data is now loaded statically from the import
+    setServices(servicesData);
   }, []);
 
   const getImageUrl = (path) => {

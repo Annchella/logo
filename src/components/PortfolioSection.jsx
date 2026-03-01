@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import PortfolioCard from './PortfolioCard';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import portfolioData from '../data/data.json';
 
 const PortfolioSection = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(portfolioData);
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get('/api/portfolio');
-        setProjects(response.data);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      }
-    };
-    fetchProjects();
+    // Data is now loaded statically from the import
+    setProjects(portfolioData);
   }, []);
 
   const getImageUrl = (path) => {
     if (!path) return '';
     if (path.startsWith('http')) return path;
-    if (path.startsWith('/src/assets/')) {
-      const filename = path.split('/').pop();
-      return `/assets/${filename}`;
-    }
-    return path;
+    // Resolve both old /src/assets/ and new /assets/ paths to the public assets folder
+    const filename = path.split('/').pop();
+    return `/assets/${filename}`;
   };
 
   // Height classes to match the masonry layout in the image
