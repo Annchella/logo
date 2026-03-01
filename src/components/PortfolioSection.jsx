@@ -22,9 +22,10 @@ const PortfolioSection = () => {
     if (!path) return '';
     if (path.startsWith('http')) return path;
     if (path.startsWith('/src/assets/')) {
-      return `/api/assets/${path.split('/').pop()}`;
+      const filename = path.split('/').pop();
+      return `/assets/${filename}`;
     }
-    return `/api${path}`;
+    return path;
   };
 
   // Height classes to match the masonry layout in the image

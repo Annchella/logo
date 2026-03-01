@@ -169,7 +169,7 @@ const AdminDashboard = () => {
                                     <div className="flex items-center gap-6">
                                         <div className="w-16 h-16 rounded-sm overflow-hidden bg-black/50 border border-white/5">
                                             <img
-                                                src={item.image.startsWith('http') ? item.image : `/api${item.image}`}
+                                                src={item.image.startsWith('http') ? item.image : `/assets/${item.image.split('/').pop()}`}
                                                 alt={item.title}
                                                 className="w-full h-full object-cover"
                                                 onError={(e) => { e.target.src = 'https://via.placeholder.com/150?text=Error'; }}

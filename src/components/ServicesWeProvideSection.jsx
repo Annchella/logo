@@ -20,7 +20,8 @@ const ServicesWeProvideSection = () => {
   const getImageUrl = (path) => {
     if (!path) return '';
     if (path.startsWith('http')) return path;
-    return `/api${path}`;
+    const filename = path.split('/').pop();
+    return `/assets/${filename}`;
   };
 
   return (
