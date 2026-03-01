@@ -15,6 +15,7 @@ import CoreServicesSection from './components/CoreServicesSection';
 import AdminDashboard from './components/AdminDashboard';
 
 function App() {
+  console.log("VA_STATUS: v2.5-STATIC-DATA-ONLY");
   return (
     <Router>
       <div className="min-h-screen bg-[#1a1a1a] text-white">
