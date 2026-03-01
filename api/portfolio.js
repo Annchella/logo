@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+export default function handler(req, res) {
     const data = [
         {
             "id": 1,
