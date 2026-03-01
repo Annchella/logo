@@ -1,0 +1,40 @@
+module.exports = (req, res) => {
+    const data = [
+        {
+            "id": 1,
+            "number": "001",
+            "title": "ALL PRINTING WORKS",
+            "description": "libero, porta gravida dui sollicitudin. nisl. Sed lacus orci sapien ac at sit in lobortis, orci Lorem ex. urna. vitae nec Nunc malesuada felis, nibh nisl. Nam adipiscing convallis. Donec amet, laoreet lacus, ipsum nisl. placerat elit Ut",
+            "image": "/assets/PRINTING.png"
+        },
+        {
+            "id": 2,
+            "number": "002",
+            "title": "BRANDING",
+            "description": "Sed tincidunt non, vel enim. faucibus laoreet eu dignissim, amet, non Sed placerat non nec ex efficitur. orci lacus, ex Cras dignissim, Donec fringilla Sed tincidunt eget urna nulla, commodo vitae laoreet massa sollicitudin. vitae sed ex",
+            "image": "/assets/BRANDING.png"
+        },
+        {
+            "id": 3,
+            "number": "003",
+            "title": "WEBSITE DESIGNING",
+            "description": "Morbi Cras at, consectetur lorem. sapien Ut viverra ex fringilla lorem. tincidunt faucibus Sed adipiscing ex non. sit placerat massa Lorem lobortis, elementum Nunc Donec faucibus tempor urna. hendrerit viverra sodales. adipiscing Lorem ex",
+            "image": "/assets/GRAPHICS.png"
+        },
+        {
+            "id": 4,
+            "number": "004",
+            "title": "VIDEO/MOTION GRAPHICS",
+            "description": "placerat eget ex tincidunt placerat quam viverra viverra In Donec non non orci libero, nulla, nisi sed maximus vitae lorem. Praesent elit viverra dui. viverra lacus, luctus quis Vestibulum placerat. maximus nibh efficitur. id scelerisque",
+            "image": "/assets/MOTION.png"
+        },
+        {
+            "id": 5,
+            "number": "005",
+            "title": "UI UX/DESIGN",
+            "description": "dui tincidunt nam vehicula, Nullam venenatis libero, fringilla Marta Nam sed eget nisi ac nisi est fringilla eu cursus ullamcorper quis sed set. hendrerit odio maximus dui llc. Nullam ex placerat viverra leo. Nullam urna nec quis in et.",
+            "image": "/assets/DESIGN.png"
+        }
+    ];
+    res.status(200).json(data);
+};
