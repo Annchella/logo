@@ -9,7 +9,7 @@ const PortfolioSection = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/portfolio');
+        const response = await axios.get('/api/portfolio');
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -22,9 +22,9 @@ const PortfolioSection = () => {
     if (!path) return '';
     if (path.startsWith('http')) return path;
     if (path.startsWith('/src/assets/')) {
-      return `http://localhost:5000/assets/${path.split('/').pop()}`;
+      return `/api/assets/${path.split('/').pop()}`;
     }
-    return `http://localhost:5000${path}`;
+    return `/api${path}`;
   };
 
   // Height classes to match the masonry layout in the image

@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     const fetchItems = async () => {
         try {
             const endpoint = activeTab === 'portfolio' ? 'portfolio' : 'services';
-            const response = await axios.get(`http://localhost:5000/api/${endpoint}`);
+            const response = await axios.get(`/api/${endpoint}`);
             setItems(response.data);
         } catch (error) {
             console.error(`Error fetching ${activeTab}:`, error);
@@ -26,9 +26,9 @@ const AdminDashboard = () => {
         try {
             const endpoint = activeTab === 'portfolio' ? 'portfolio' : 'services';
             if (editingId) {
-                await axios.put(`http://localhost:5000/api/${endpoint}/${editingId}`, formData);
+                await axios.put(`/api/${endpoint}/${editingId}`, formData);
             } else {
-                await axios.post(`http://localhost:5000/api/${endpoint}`, formData);
+                await axios.post(`/api/${endpoint}`, formData);
             }
             setFormData({ title: '', image: '', category: '', number: '', description: '' });
             setEditingId(null);
@@ -47,7 +47,7 @@ const AdminDashboard = () => {
         if (window.confirm('Are you sure you want to delete this item?')) {
             try {
                 const endpoint = activeTab === 'portfolio' ? 'portfolio' : 'services';
-                await axios.delete(`http://localhost:5000/api/${endpoint}/${id}`);
+                await axios.delete(`/api/${endpoint}/${id}`);
                 fetchItems();
             } catch (error) {
                 console.error('Error deleting item:', error);
@@ -169,7 +169,7 @@ const AdminDashboard = () => {
                                     <div className="flex items-center gap-6">
                                         <div className="w-16 h-16 rounded-sm overflow-hidden bg-black/50 border border-white/5">
                                             <img
-                                                src={item.image.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                                src={item.image.startsWith('http') ? item.image : `/api${item.image}`}
                                                 alt={item.title}
                                                 className="w-full h-full object-cover"
                                                 onError={(e) => { e.target.src = 'https://via.placeholder.com/150?text=Error'; }}
